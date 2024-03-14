@@ -5,7 +5,7 @@ from input import (
     input_course_info,
     input_marks_for_course
 )
-from output import curses_output  # Placeholder for curses UI
+from output import curses_output  
 from domains.student import Student
 from domains.course import Course
 
@@ -27,8 +27,7 @@ class SchoolSystem:
             course_info = input_course_info()
             course = Course(*course_info)
             self.courses.append(course)
-            self.marks[course.course_id] = {}  # Using course ID as keys for marks dictionary
-
+            self.marks[course.course_id] = {}  
         while True:
             print("\nMenu:")
             print("1. List courses")
@@ -64,13 +63,31 @@ class SchoolSystem:
                 else:
                     print("Invalid course ID")
             elif choice == "5":
-                # Implement GPA calculation and sorting
-                pass
+                self.calculate_and_sort_by_gpa()
             elif choice == "6":
-                # Save data and exit
+                
                 break
             else:
                 print("Invalid choice. Please enter a valid option.")
+
+    def calculate_gpa(self, student_id):
+        total_credits = 0
+        weighted_sum = 0
+
+        for course_id, marks in self.marks.items():
+            if student_id in marks:
+                course = next((course for course in self.courses if course.course_id == course_id), None)
+                if course:
+                    total_credits += course.credits
+                    weighted_sum += course.credits * marks[student_id]
+
+        if total_credits == 0:
+            return 0
+        else:
+            return weighted_sum / total_credits
+
+    def sort_students_by_gpa(self):
+        return sorted(self.students, key=lambda student: self.calculate_gpa(student.student_id), reverse=True)
 
 if __name__ == "__main__":
     school_system = SchoolSystem()
