@@ -21,6 +21,12 @@ def input_marks_for_course(students):
     marks = {}
     for student in students:
         mark = float(input(f"Enter mark for {student[1]}: "))
+<<<<<<< Updated upstream
         mark = math.floor(mark * 10) / 10  # Round down to 1-digit decimal
         marks[student[0]] = mark
     return marks
+=======
+        mark = math.floor(mark * 10) / 10  
+        marks[student[0]] = mark
+    return marks
+>>>>>>> Stashed changes
