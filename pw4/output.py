@@ -1,8 +1,5 @@
 import curses
 
-<<<<<<< Updated upstream
-
-=======
 class CursesUI:
     def __init__(self):
         self.stdscr = curses.initscr()
@@ -37,4 +34,3 @@ if __name__ == "__main__":
     ui.display_menu()
     choice = ui.get_user_choice()
     ui.close()
->>>>>>> Stashed changes

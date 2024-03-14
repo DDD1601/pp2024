@@ -5,11 +5,7 @@ from input import (
     input_course_info,
     input_marks_for_course
 )
-<<<<<<< Updated upstream
 from output import curses_output  # Placeholder for curses UI
-=======
-from output import curses_output  
->>>>>>> Stashed changes
 from domains.student import Student
 from domains.course import Course
 
@@ -19,11 +15,6 @@ class SchoolSystem:
         self.courses = []
         self.marks = {}
 
-<<<<<<< Updated upstream
-    # Other methods from the original implementation
-
-=======
->>>>>>> Stashed changes
     def main(self):
         num_students = input_number_of_students()
         for _ in range(num_students):
@@ -36,12 +27,8 @@ class SchoolSystem:
             course_info = input_course_info()
             course = Course(*course_info)
             self.courses.append(course)
-<<<<<<< Updated upstream
             self.marks[course.course_id] = {}  # Using course ID as keys for marks dictionary
 
-=======
-            self.marks[course.course_id] = {}  
->>>>>>> Stashed changes
         while True:
             print("\nMenu:")
             print("1. List courses")
@@ -51,9 +38,6 @@ class SchoolSystem:
             print("5. Calculate and sort students by GPA")
             print("6. Exit")
 
-<<<<<<< Updated upstream
-            # The rest of the main functionality goes here
-=======
             choice = input("Enter your choice: ")
 
             if choice == "1":
@@ -80,14 +64,13 @@ class SchoolSystem:
                 else:
                     print("Invalid course ID")
             elif choice == "5":
-                
+                # Implement GPA calculation and sorting
                 pass
             elif choice == "6":
-                
+                # Save data and exit
                 break
             else:
                 print("Invalid choice. Please enter a valid option.")
->>>>>>> Stashed changes
 
 if __name__ == "__main__":
     school_system = SchoolSystem()
