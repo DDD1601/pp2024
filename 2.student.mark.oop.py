@@ -67,7 +67,7 @@ class SchoolSystem:
         for _ in range(num_courses):
             course_info = self.input_course_info()
             self.courses.append(course_info)
-            self.marks[course_info.course_id] = {}  # Using course ID as keys for marks dictionary
+            self.marks[course_info.course_id] = {}  
 
         while True:
             print("\nMenu:")
