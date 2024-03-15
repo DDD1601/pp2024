@@ -104,5 +104,5 @@ class SchoolSystem:
 
 if __name__ == "__main__":
     school_system = SchoolSystem()
-    school_system.load_data()  # Load data if available
+    school_system.load_data()  
     school_system.main()
